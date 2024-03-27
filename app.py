@@ -27,7 +27,8 @@ st.image(image, width=150)
 st.title("Film Script Analyzer🎬")
 st.markdown("### Built using Lyzr SDK🚀")
 st.markdown(
-"Uncover the Story Behind the Scenes! Let Lyzr decode film scripts for you—simply upload, inquire, and unveil the plot twists in a flash.")
+    "Uncover the Story Behind the Scenes! Let Lyzr decode film scripts for you—simply upload, inquire, and unveil the plot twists in a flash."
+)
 
 # Custom function to style the app
 def style_app():
@@ -111,11 +112,7 @@ if __name__ == "__main__":
 
 This app uses the RAG pre-built framework to streamline natural language understanding, facilitating efficient interpretation of user queries and enabling seamless interaction with uploaded PDF scripts for rapid insight extraction.
 
-
-
-
-
- For any inquiries or issues, please contact Lyzr.
+For any inquiries or issues, please contact Lyzr.
     
         """)
         st.link_button("Lyzr", url='https://www.lyzr.ai/', use_container_width = True)
