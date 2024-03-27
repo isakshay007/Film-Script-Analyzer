@@ -35,3 +35,4 @@ def save_uploaded_file(uploaded_file):
     with open(file_path, "wb") as file:
         file.write(uploaded_file.read())
     st.success("File uploaded successfully")
+    return file_path
