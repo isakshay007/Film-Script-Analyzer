@@ -27,8 +27,7 @@ st.image(image, width=150)
 st.title("Film Script Analyzer🎬")
 st.markdown("### Built using Lyzr SDK🚀")
 st.markdown(
-    "Uncover the Story Behind the Scenes! Let Lyzr decode film scripts for you—simply upload, inquire, and unveil the plot twists in a flash."
-)
+"Uncover the Story Behind the Scenes! Let Lyzr decode film scripts for you—simply upload, inquire, and unveil the plot twists in a flash.")
 
 # Custom function to style the app
 def style_app():
@@ -44,9 +43,9 @@ def style_app():
 def initialize_chatbot(file_path):
     vector_store_params = {
         "vector_store_type": "WeaviateVectorStore",
-        "url": "https://my-qa-tdacvc8s.weaviate.network",
-        "api_key": "JKH1RRtpqOMRZ5cZ4L5rxcQKBMIAUhlv8A4Hj",
-        "index_name": "Ronaldo"
+        "url": st.secrets["WEVIATE_URL"],
+        "api_key": st.secrets["WEVIATE_API"],
+        "index_name": f"File{file_path[0:4]}IndexName" 
     }
     chatbot = ChatBot.pdf_chat(input_files=[file_path], vector_store_params=vector_store_params)
     return chatbot
@@ -102,6 +101,7 @@ def pdf_chat_integration():
                 else:
                     st.error("Failed to initialize chatbot. Please try again.")
     else:
+        utils.remove_existing_files(data)
         st.warning("Please upload a PDF file.")
 
 if __name__ == "__main__":
@@ -112,7 +112,11 @@ if __name__ == "__main__":
 
 This app uses the RAG pre-built framework to streamline natural language understanding, facilitating efficient interpretation of user queries and enabling seamless interaction with uploaded PDF scripts for rapid insight extraction.
 
-For any inquiries or issues, please contact Lyzr.
+
+
+
+
+ For any inquiries or issues, please contact Lyzr.
     
         """)
         st.link_button("Lyzr", url='https://www.lyzr.ai/', use_container_width = True)
