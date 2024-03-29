@@ -45,7 +45,7 @@ def initialize_chatbot(file_path):
         "vector_store_type": "WeaviateVectorStore",
         "url": st.secrets["WEVIATE_URL"],
         "api_key": st.secrets["WEVIATE_API"],
-        "index_name": f"File{file_path[0:4]}IndexName" 
+        "index_name": f"File{file_path[5:9]}IndexName" 
     }
     chatbot = ChatBot.pdf_chat(input_files=[file_path], vector_store_params=vector_store_params)
     return chatbot
